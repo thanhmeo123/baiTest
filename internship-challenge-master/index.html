@@ -1,0 +1,203 @@
+<html>
+
+<head>
+    <title>Manabie Internship challenge</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet" />
+
+    <style type="text/css">
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: "Roboto", sans-serif;
+            min-height: 100vh;
+        }
+
+        footer {
+            background-color: rgb(57, 90, 210);
+            padding: 16px 8px;
+            color: white;
+        }
+
+        main {
+            margin: 16px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table td,
+        table th {
+            border: 1px solid #ddd;
+            padding-left: 4px;
+            padding-right: 4px;
+        }
+
+        table th {
+            text-align: left;
+        }
+
+        span.Manabie__quote {
+            background-color: #cccccc;
+            padding-left: 4px;
+            padding-right: 4px;
+        }
+
+        .Manabie__title {
+            white-space: nowrap;
+            width: auto;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .Manabie__title:hover {
+            overflow: visible;
+            word-wrap: normal;
+        }
+
+        .Manabie__footer {
+            position: fixed;
+            left: 0px;
+            bottom: 0px;
+            height: 30px;
+            width: 100%;
+        }
+
+        .container {
+            height: auto;
+        }
+
+        #Manabie__table {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+        }
+
+        #Manabie__table td,
+        #Manabie__table th {
+            border: 1px solid #ddd;
+            padding: 8px;
+
+        }
+
+        #Manabie__table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        #Manabie__table tr:hover {
+            background-color: #ddd;
+        }
+
+        #Manabie__table th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            text-align: left;
+            background-color: #04AA6D;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Please help add CSS to make this title only display on one line and add tooltip to view full text -->
+        <h1 id="Manabie__title" class="Manabie__title">
+            Title - Welcome to Manabie internship coding challenge. Thank you
+            for interested in our vacancy of Frontend Engineer. As discussed, we
+            would love to have a more in depth conversation with you
+        </h1>
+
+        <main>
+            <h3>Requirement</h3>
+            <ul>
+                <li>
+                    Please help add CSS to make
+                    <span class="Manabie__quote">h1#Manabie__title</span> only
+                    display on one line. And add tooltip to view full text when
+                    hovering on element
+                </li>
+                <li>
+                    Moving
+                    <span class="Manabie__quote">footer#Manabie__footer</span>
+                    to bottom of the screen
+                </li>
+                <li>
+                    Fetching data from Rest API
+                    <a target="_blank" href="https://zwxiws.sse.codesandbox.io/">https://zwxiws.sse.codesandbox.io/</a>
+                    to display on table. For status column, if battery grather
+                    than 90 the status is good, the other is bad
+                </li>
+                <li>
+                    Bonus: If you have time please kindly help add CSS to make
+                    <span class="Manabie__quote">table#Manabie__table</span>
+                    look beautiful than now
+                </li>
+            </ul>
+            <h3>Table - Manabie Device sheet</h3>
+            <table id="Manabie__table" class="Manabie__table">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>OS</th>
+                    <th>Battery</th>
+                    <!-- If Battery grather than 90 the status is good, the other is bad -->
+                    <th>Status</th>
+                </tr>
+            </table>
+        </main>
+
+        <!-- Moving footer on the bottom of the screen -->
+        <footer id="Manabie__footer" class="Manabie__footer">
+            <p>Footer - Manabie challenge</p>
+        </footer>
+    </div>
+
+</body>
+
+<script>
+    function addNewCellInTable() {
+        var table = document.getElementById("Manabie__table");
+        var row = table.insertRow(1); // the first row is hearder
+        var cellID = row.insertCell(0);
+        var cellName = row.insertCell(1);
+        var cellOS = row.insertCell(2);
+        var cellBattery = row.insertCell(3);
+        // If Battery grather than 90 the status is good, the other is bad
+        var cellStatus = row.insertCell(4);
+
+        cellID.innerHTML = "1";
+        cellName.innerHTML = "Iphone 13";
+        cellOS.innerHTML = "Apple";
+        cellBattery.innerHTML = "92";
+        cellStatus.innerHTML = "Good";
+    }
+    addNewCellInTable();
+
+
+    const endpoint = 'https://zwxiws.sse.codesandbox.io/';
+    const tr = document.getElementById('Manabie__table');
+        let pin;
+        let trangThai;
+        
+        fetch(endpoint)
+          .then(blob => blob.json())
+          .then(data => handleDates(data));
+
+        //   function handleDates(data) {
+        //     pin = data;
+        //     trangThai = pin["phan tram"].events;
+        //       }
+            
+        //     }).join('');
+        //   tr.innerHTML = html;
+        // }
+
+</script>
+
+</html>
